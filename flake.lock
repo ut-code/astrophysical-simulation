@@ -1,23 +1,20 @@
 {
   "nodes": {
-    "blueprint": {
+    "flake-utils": {
       "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ],
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1763308703,
-        "narHash": "sha256-O9Y+Wer8wOh+N+4kcCK5p/VLrXyX+ktk0/s3HdZvJzk=",
+        "lastModified": 1731533236,
+        "narHash": "sha256-l0KFg5HjrsfsO/JpG+r7fRrqm12kzFHyUHqHCVpMMbI=",
         "owner": "numtide",
-        "repo": "blueprint",
-        "rev": "5a9bba070f801d63e2af3c9ef00b86b212429f4f",
+        "repo": "flake-utils",
+        "rev": "11707dc2f618dd54ca8739b309ec4fc024de578b",
         "type": "github"
       },
       "original": {
         "owner": "numtide",
-        "repo": "blueprint",
+        "repo": "flake-utils",
         "type": "github"
       }
     },
@@ -39,7 +36,7 @@
     },
     "root": {
       "inputs": {
-        "blueprint": "blueprint",
+        "flake-utils": "flake-utils",
         "nixpkgs": "nixpkgs"
       }
     },
