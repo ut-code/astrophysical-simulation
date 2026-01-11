@@ -1,8 +1,8 @@
 import { Leva, useControls } from "leva";
-import ThreeCanvas from "@/three/Canvas";
-import Scene from "@/three/Scene";
+import ThreeCanvas from "@/pages/Home/Canvas";
+import Scene from "@/pages/Home/Scene";
 
-const Home = () => {
+export default function Home () {
   const { color } = useControls({
     color: { value: "orange" }, // 初期値
   });
@@ -11,10 +11,9 @@ const Home = () => {
     <>
       <Leva />
       <ThreeCanvas>
-        <Scene color={color} /> {/* Scene に渡す */}
+        <Scene color={color} /> 
       </ThreeCanvas>
     </>
   );
 };
 
-export default Home;
