@@ -26,7 +26,7 @@ function PlanetMesh({ planet }: PlanetMeshProps) {
   });
 
   return (
-    <mesh ref={meshRef}>
+    <mesh ref={meshRef} position={[planet.x, planet.y, planet.z]}>
       {/* args: [radius, widthSegments, heightSegments] 
         Higher segments = smoother sphere
       */}

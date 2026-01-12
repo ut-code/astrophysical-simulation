@@ -6,6 +6,9 @@ export const earth: Planet = {
   radius: 2,
   width: 64,
   height: 64,
+  x: 0,
+  y: 0,
+  z: 0,
 };
 
 // Easy to add more planets later:
