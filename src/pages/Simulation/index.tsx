@@ -2,29 +2,35 @@ import { useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Stars, useTexture } from "@react-three/drei";
 import * as THREE from "three";
+import type { Planet } from "@/types/planet";
+import { earth } from "@/data/planets";
 
-function Earth() {
-  const earthRef = useRef<THREE.Mesh>(null);
+interface PlanetMeshProps {
+  planet: Planet;
+}
+
+function PlanetMesh({ planet }: PlanetMeshProps) {
+  const meshRef = useRef<THREE.Mesh>(null);
   
   // Load the texture (you can use any public Earth texture URL)
   const [colorMap] = useTexture([
-    "https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg"
+    planet.texturePath
   ]);
 
   // This hook runs every frame (approx 60fps)
   useFrame((_state, delta) => {
-    if (earthRef.current) {
-      // Rotate the earth on its Y-axis
-      earthRef.current.rotation.y += delta * 2;
+    if (meshRef.current) {
+      // Rotate the planet on its Y-axis
+      meshRef.current.rotation.y += delta * planet.rotationSpeedY;
     }
   });
 
   return (
-    <mesh ref={earthRef}>
+    <mesh ref={meshRef}>
       {/* args: [radius, widthSegments, heightSegments] 
         Higher segments = smoother sphere
       */}
-      <sphereGeometry args={[2, 64, 64]} />
+      <sphereGeometry args={[planet.radius, planet.width, planet.height]} />
       <meshStandardMaterial map={colorMap} />
     </mesh>
   );
@@ -43,7 +49,7 @@ export default function Page() {
         <ambientLight intensity={1.2} />
         <pointLight position={[10, 10, 10]} intensity={3} />
         
-        <Earth />
+        <PlanetMesh planet={earth} />
         
         {/* Optional background and controls */}
         <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
