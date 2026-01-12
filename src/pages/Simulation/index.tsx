@@ -15,7 +15,7 @@ function Earth() {
   useFrame((_state, delta) => {
     if (earthRef.current) {
       // Rotate the earth on its Y-axis
-      earthRef.current.rotation.y += delta * 0.2;
+      earthRef.current.rotation.y += delta * 2;
     }
   });
 
@@ -32,8 +32,13 @@ function Earth() {
 
 export default function Page() {
   return (
-    <div style={{ width: "100vw", height: "100vh", background: "black" }}>
-      <Canvas camera={{ position: [0, 0, 6] }}>
+    <>
+      <Canvas 
+        camera={{ position: [0, 0, 6] }} 
+        onCreated={({ gl }) => {
+          gl.setClearColor('#000000', 1);
+        }}
+      >
         {/* Adds ambient and directional light so we can see the 3D shape */}
         <ambientLight intensity={1.2} />
         <pointLight position={[10, 10, 10]} intensity={3} />
@@ -44,6 +49,6 @@ export default function Page() {
         <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
         <OrbitControls enableZoom={true} />
       </Canvas>
-    </div>
+    </>
   );
 }
