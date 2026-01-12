@@ -44,6 +44,7 @@ export default function Page() {
         onCreated={({ gl }) => {
           gl.setClearColor('#000000', 1);
         }}
+        style={{ width: '100vw', height: '100vh' }}
       >
         {/* Adds ambient and directional light so we can see the 3D shape */}
         <ambientLight intensity={1.2} />
