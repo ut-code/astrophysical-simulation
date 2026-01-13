@@ -26,7 +26,7 @@ function PlanetMesh({ planet }: PlanetMeshProps) {
   });
 
   return (
-    <mesh ref={meshRef} position={[planet.x, planet.y, planet.z]}>
+    <mesh ref={meshRef} position={[planet.position.x, planet.position.y, planet.position.z]}>
       {/* args: [radius, widthSegments, heightSegments] 
         Higher segments = smoother sphere
       */}
@@ -38,7 +38,6 @@ function PlanetMesh({ planet }: PlanetMeshProps) {
 
 export default function Page() {
   return (
-    <>
       <Canvas 
         camera={{ position: [0, 0, 6] }} 
         onCreated={({ gl }) => {
@@ -56,6 +55,5 @@ export default function Page() {
         <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
         <OrbitControls enableZoom={true} />
       </Canvas>
-    </>
   );
 }

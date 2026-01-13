@@ -1,10 +1,9 @@
+import type * as THREE from "three"
 export type Planet = {
     texturePath: string;
     rotationSpeedY: number;
     radius: number;
     width: number;
     height: number; 
-    x: number;
-    y: number;
-    z: number;
+    position: THREE.Vector3;
 }

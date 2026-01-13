@@ -1,4 +1,5 @@
 import type { Planet } from "@/types/planet";
+import * as THREE from "three"
 
 export const earth: Planet = {
   texturePath: "https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg",
@@ -6,9 +7,7 @@ export const earth: Planet = {
   radius: 2,
   width: 64,
   height: 64,
-  x: 0,
-  y: 0,
-  z: 0,
+  position: new THREE.Vector3(0, 0, 0)
 };
 
 // Easy to add more planets later:
